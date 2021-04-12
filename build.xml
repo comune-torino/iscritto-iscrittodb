@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ##################################################### -->
+<!-- # Copyright 2006 (c) CSI Piemonte.                  # -->
+<!-- #                                                   # -->
+<!-- # build.xml file per compilazione e generazione     # -->
+<!-- # del pacchetto per il rilascio dell'applicazione.  # -->
+<!-- #                                                   # -->
+<!-- # Per una lista completa dei tasks eseguibili usare # -->
+<!-- # l'argomento di ant -projecthelp quando si         # -->
+<!-- # richiama questo build.xml.                        # -->
+<!-- ##################################################### -->
+
+
+<project xmlns:ivy="antlib:fr.jayasoft.ivy.ant"
+         basedir="."
+         default="distribution"
+         name="iscrittodb">
+
+    <description>Build file per la componente : [iscrittodb]</description>
+
+    
+    <property file="buildfiles/build.properties"/>
+	
+    <!-- ############################################################# -->
+    <!-- # Target: init                                              # -->
+    <!-- ############################################################# -->
+    <target name="init" description="Inizializza lo script Ant.">
+        <tstamp/>
+        <tstamp/>
+		<mkdir dir="${build}/temp" />
+		<mkdir dir="${dist}/${target}" />
+		<echo message="target: ${target}" />
+		<loadproperties srcFile="buildfiles/${target}.properties"/>
+	</target>
+
+	
+		
+		
+
+    <target name="distribution" depends="init" description="crea la distribution per un dato target">
+		
+		<zip destfile="${dist}/${target}/${zip-outfilename}" 
+			basedir="src/sql/incr"
+			includes="ISCRITTODB-${component-version}-*.sql"
+			update="true" 
+			filesonly="true"/>
+	</target>
+
+    <!-- -->
+    <!-- ############################################################# -->
+    <!-- # [CLEAN]: clean                                            # -->
+    <!-- ############################################################# -->
+    <!-- -->
+    <target name="clean-all" description="Rimuove tutti i prodotti del build (in pratica la cartella build)">
+        <delete dir="${target}" verbose="y"/>
+		<delete dir="${dist}" verbose="y"/>
+    </target>
+
+</project>

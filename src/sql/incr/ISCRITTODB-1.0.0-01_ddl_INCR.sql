@@ -1,0 +1,18 @@
+
+ALTER TABLE iscritto_t_allegato ADD nome_file varchar(200) NULL;
+ALTER TABLE iscritto_t_allegato ADD mime_type varchar(100) NULL;
+
+CREATE SEQUENCE iscritto_t_allegato_id_allegato_seq;
+CREATE SEQUENCE iscritto_t_condizione_occ_id_condizione_occupazionale;
+CREATE SEQUENCE iscritto_t_disoccupato_ex_id_disoccupato_ex_lav;
+CREATE SEQUENCE iscritto_t_anagrafica_sog_id_anagrafica_soggetto;
+CREATE SEQUENCE iscritto_t_utente_id_utente;
+CREATE SEQUENCE iscritto_t_anno_sco_id_anno_scolastico;
+CREATE SEQUENCE iscritto_t_classe_id_classe;
+CREATE SEQUENCE iscritto_t_scuola_id_scuola;
+CREATE SEQUENCE iscritto_t_punteggio_id_punteggio;
+CREATE SEQUENCE iscritto_t_domanda_isc_id_domanda_iscrizione;
+CREATE SEQUENCE iscritto_t_fratello_fre_id_fratello_frequentante;
+CREATE SEQUENCE iscritto_t_recapito_id_recapito; -- da rimuovere nella prossima versione
+
+CREATE SEQUENCE iscritto_t_domanda_isc_protocollo;
